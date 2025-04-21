@@ -1,0 +1,22 @@
+name: build-server            # 这条 workflow 的名字
+
+on:                           # 触发条件
+  push:                       # 每次 push
+  pull_request:               # 或 PR 都跑
+
+jobs:
+  build-linux:                # 一个 job
+    runs-on: ubuntu-latest    # GitHub 提供的 Ubuntu 镜像
+    steps:
+      - uses: actions/checkout@v4   # 把仓库源码拉到 runner 上
+
+      - name: Install deps          # 安装编译依赖
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y cmake g++ libsqlite3-dev
+
+      - name: Configure             # CMake 生成
+        run: cmake -S server -B build
+
+      - name: Build                 # CMake 编译
+        run: cmake --build build --parallel 
