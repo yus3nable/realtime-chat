@@ -1,0 +1,3 @@
+/Users/welch/Desktop/realtime-chat/server/build/CMakeFiles/chat_server.dir
+/Users/welch/Desktop/realtime-chat/server/build/CMakeFiles/edit_cache.dir
+/Users/welch/Desktop/realtime-chat/server/build/CMakeFiles/rebuild_cache.dir
